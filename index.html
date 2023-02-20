@@ -121,8 +121,8 @@
 							<section id="four">
 								<div class="container">
 									<h3>Contact Me</h3>
-									<p>Kindly leave me a message and I will do my best to respond as promptly as I can. Thank you!</p>
-									<form method="post" action="#">
+									<p>Kindly drop me a mail and I will do my best to respond as promptly as I can. Thank you!</p>
+									<form method="get" action="#" onsubmit=sendMail()>
 										<div class="row gtr-uniform">
 											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
 											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
@@ -130,7 +130,8 @@
 											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
 											<div class="col-12">
 												<ul class="actions">
-													<li><input type="submit" onclick= sendMail()  class="primary" value="Send Message" /></li>
+													<li>
+														<input type="submit" value="Send Mail" /></li>
 													<script>
 															const sendMail = () => {
  															const mailAdress = "harshalmehta1998@gmail.com"
@@ -138,7 +139,7 @@
   															const subject = encodeURIComponent(document.getElementById('subject').value)
   															const body = encodeURIComponent(document.getElementById('message').value)
   															const  link= `mailto:${mailAdress}?cc=${ccRecipients}&subject=${subject}&body=${body}`
-  															window.location.href = link
+															window.location.href = link
 														}
 													</script>
 													<li><input type="reset" value="Reset Form" /></li>
