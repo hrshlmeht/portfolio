@@ -130,7 +130,17 @@
 											<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
 											<div class="col-12">
 												<ul class="actions">
-													<li><input type="submit" class="primary" value="Send Message" /></li>
+													<li><input type="submit" onclick= sendMail()  class="primary" value="Send Message" /></li>
+													<script>
+															const sendMail = () => {
+ 															const mailAdress = "harshalmehta1998@gmail.com"
+  															const ccRecipients =  "harshalsanjaymehta@gmail.com"
+  															const subject = encodeURIComponent(document.getElementById('subject').value)
+  															const body = encodeURIComponent(document.getElementById('message').value)
+  															const  link= `mailto:${mailAdress}?cc=${ccRecipients}&subject=${subject}&body=${body}`
+  															window.location.href = link
+														}
+													</script>
 													<li><input type="reset" value="Reset Form" /></li>
 												</ul>
 											</div>
