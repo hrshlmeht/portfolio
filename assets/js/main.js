@@ -161,9 +161,9 @@
 document.querySelectorAll('.feature-icons li').forEach((item) => {
     item.addEventListener('mouseenter', (e) => {
         const tooltip = document.createElement('div');
-        tooltip.innerText = 'Click for more info on ' + e.target.innerText;
+        // tooltip.innerText = 'Click for more info on ' + e.target.innerText;
         tooltip.style.position = 'absolute';
-        tooltip.style.backgroundColor = 'black';
+        // tooltip.style.backgroundColor = 'black';
         tooltip.style.color = 'white';
         tooltip.style.padding = '5px';
         tooltip.style.borderRadius = '5px';

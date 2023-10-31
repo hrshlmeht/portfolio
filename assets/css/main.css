@@ -130,7 +130,7 @@ input, select, textarea {
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		color: #777;
+		color: #111111;
 		font-weight: 700;
 		line-height: 1em;
 		margin: 0 0 0.5625em 0;
@@ -138,7 +138,7 @@ input, select, textarea {
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 			border: 0;
-			color: inherit;
+			color: #111111;
 			text-decoration: none;
 		}
 
@@ -1754,27 +1754,37 @@ input, select, textarea {
 		.feature-icons {
 			display: flex;
 			flex-wrap: wrap;
-			justify-content: space-around;
+			justify-content: center;
 			list-style: none;
 			padding: 0;
 		}
 		
 		.feature-icons li {
+			display: inline-flex;
+			align-items: center;
 			border: 1px solid #ddd;
 			border-radius: 10px;
 			box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 			margin: 10px;
 			padding: 10px 20px;
-			transition: transform 0.3s, box-shadow 0.3s;
+			transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s, color 0.3s;
+			cursor: pointer;
 		}
 		
 		.feature-icons li:hover {
 			box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
 			transform: translateY(-5px);
+			background-color: #333;
+			color: #fff;
 		}
 		
 		.feature-icons .icon {
 			margin-right: 10px;
+			transition: color 0.3s;
+		}
+		
+		.feature-icons li:hover .icon {
+			color: #fff;
 		}
 /* Section/Article */
 
@@ -2724,8 +2734,8 @@ input, select, textarea {
 		-webkit-justify-content: space-between;
 		-ms-justify-content: space-between;
 		justify-content: space-between;
-		background: #2c5F78;
-		color: #d2f2e9;
+		background: #0e1e2b;
+		color: #000000;
 		height: 100%;
 		overflow-y: auto;
 		position: fixed;
@@ -2838,6 +2848,12 @@ input, select, textarea {
 					#header > nav ul li:first-child {
 						border-top: 0;
 					}
+
+					#header > nav ul li a:hover {
+						background-color: #007BFF;  /* A nice shade of blue */
+						transform: scale(1.05);  /* Slightly enlarged for the "pop" effect */
+					}
+					
 
 /* Wrapper */
 
@@ -3337,4 +3353,17 @@ input, select, textarea {
 				padding: 0;
 			}
 
+	}
+
+	@keyframes avatarZoom {
+		0%, 100% {
+			transform: scale(1);  /* Start and end at normal size */
+		}
+		50% {
+			transform: scale(1.05);  /* Midway, it slightly enlarges */
+		}
+	}
+	
+	#header > header .avatar img {
+		animation: avatarZoom 5s infinite;  /* Apply the animation. 5 seconds for one cycle, and it repeats infinitely. */
 	}
