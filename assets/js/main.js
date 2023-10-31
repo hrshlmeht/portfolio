@@ -157,3 +157,25 @@
 		});
 
 })(jQuery);
+
+document.querySelectorAll('.feature-icons li').forEach((item) => {
+    item.addEventListener('mouseenter', (e) => {
+        const tooltip = document.createElement('div');
+        tooltip.innerText = 'Click for more info on ' + e.target.innerText;
+        tooltip.style.position = 'absolute';
+        tooltip.style.backgroundColor = 'black';
+        tooltip.style.color = 'white';
+        tooltip.style.padding = '5px';
+        tooltip.style.borderRadius = '5px';
+        tooltip.style.opacity = '0.8';
+        tooltip.style.transform = 'translate(-50%, -100%)';
+        tooltip.style.pointerEvents = 'none';
+        tooltip.style.fontSize = '12px';
+        e.target.appendChild(tooltip);
+    });
+
+    item.addEventListener('mouseleave', () => {
+        const tooltip = item.querySelector('div');
+        if (tooltip) tooltip.remove();
+    });
+});
