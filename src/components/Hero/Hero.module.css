@@ -1,0 +1,167 @@
+.hero {
+  padding: var(--space-md) var(--space-md) var(--space-sm);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding-top: calc(var(--nav-height) + var(--space-sm));
+  }
+}
+
+.content {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.name {
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.5px;
+  color: var(--color-text);
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  border-right: 3px solid var(--color-accent);
+  animation:
+    typing 1.5s steps(18, end) 0.5s forwards,
+    blink 0.6s step-end infinite;
+}
+
+/* After typing done, shimmer plays */
+.nameShimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-text) 0%,
+    var(--color-accent) 40%,
+    var(--color-accent) 60%,
+    var(--color-text) 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 2s ease forwards;
+  background-position: 100% 0;
+  border-right: none;
+}
+
+/* After shimmer settles, text stays solid */
+.nameSettled {
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  -webkit-text-fill-color: var(--color-text);
+  color: var(--color-text);
+  border-right: none;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.snip {
+  margin-bottom: var(--space-sm);
+  display: inline-block;
+}
+
+/* ── Other hero styles ── */
+
+.role {
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  margin-bottom: 0;
+}
+
+.connectCard {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 1.1rem;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-top: var(--space-md);
+  text-decoration: none;
+  max-width: 420px;
+}
+
+.connectCard:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 16px var(--color-card-shadow);
+  color: var(--color-text);
+}
+
+.linkedinIcon {
+  color: #0a66c2;
+  flex-shrink: 0;
+}
+
+.followBtn {
+  margin-left: auto;
+  padding: 0.35rem 1rem;
+  background: var(--color-accent);
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.tagline {
+  font-size: 1rem;
+  color: var(--color-text);
+  line-height: 1.5;
+  margin-bottom: var(--space-sm);
+  font-weight: 500;
+}
+
+.bio {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: var(--space-sm);
+}
+
+.topics {
+  font-size: 1rem;
+  color: var(--color-text);
+  line-height: 1.8;
+  margin-bottom: 0.25rem;
+}
+
+.topics strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
